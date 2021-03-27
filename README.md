@@ -26,6 +26,7 @@ This is an introduction to features of Rust for experienced Java/C++ programmers
 * Blanket implementation of traits
 * No global variables
 * `unsafe` keyword
+* Full-fledge builtin testing and documentation support
 
 ## Paradigmatic Features
 * Favor composition over inheritance
