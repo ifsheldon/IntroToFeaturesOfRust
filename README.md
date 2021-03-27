@@ -40,7 +40,7 @@ toolchain management
 ### `cargo`
 * dependency management
 * building, publishing and deployment management
-## Useful Links
+## Useful Links (sorted by importance)
 * All-in-one official [official learning website](https://www.rust-lang.org/learn)
   * The book
   * Rust by examples
@@ -53,3 +53,4 @@ toolchain management
 * My posts in the forum that attracts many discussions
   * [how-to-implement-inheritance-like-feature-for-rust](https://users.rust-lang.org/t/how-to-implement-inheritance-like-feature-for-rust/31159)
   * [is-there-a-simple-way-to-overload-functions](https://users.rust-lang.org/t/is-there-a-simple-way-to-overload-functions/30937)
+* (Advertisement) My repo [RustyOOPatterns](https://github.com/ifsheldon/RustyOOPatterns)
