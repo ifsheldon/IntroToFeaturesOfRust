@@ -8,7 +8,7 @@ This is an introduction to features of Rust for experienced Java/C++ programmers
 * environment setup
 * hello rust
 ## Syntatic Features
-* Datatypes
+* Datatypes, `let` and static type inference
 * Control Flows
 * How to define a type ("class")
   * "method" and function definitions and restrictions
