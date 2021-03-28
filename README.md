@@ -1,5 +1,5 @@
 # Intro to Features Of Rust
-This is an introduction to features of Rust for experienced Java/C++ programmers.
+This is an introduction to features of Rust for experienced Java/C++ programmers, which aims to build up an indexable comprehension of Rust even though technical details are omitted.
 ## Keywords for Rust
 * Strictly typed
 * Strongly static
@@ -15,7 +15,7 @@ This is an introduction to features of Rust for experienced Java/C++ programmers
   * how to define a trait ("interface")
 * Closures - Anonymous Functions
 * Generics
-* References
+* References and **lifetime**
 * Enums and Pattern Matching
 * Error handling
 
@@ -50,7 +50,7 @@ toolchain management
   * Rustonomicon - the book of dark magics
   * Unstable book
 * **Vibrant, active and friendly** community [forum](https://users.rust-lang.org/)
-* My posts in the forum that attracts many discussions
+* My posts in the forum that attract many discussions
   * [how-to-implement-inheritance-like-feature-for-rust](https://users.rust-lang.org/t/how-to-implement-inheritance-like-feature-for-rust/31159)
   * [is-there-a-simple-way-to-overload-functions](https://users.rust-lang.org/t/is-there-a-simple-way-to-overload-functions/30937)
 * (Advertisement) My repo [RustyOOPatterns](https://github.com/ifsheldon/RustyOOPatterns)
