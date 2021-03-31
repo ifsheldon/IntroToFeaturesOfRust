@@ -1,0 +1,6 @@
+[book]
+authors = ["ifsheldon"]
+language = "en"
+multilingual = false
+src = "src"
+title = "IntroToFeaturesOfRust"
