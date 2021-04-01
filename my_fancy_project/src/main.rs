@@ -1,4 +1,5 @@
 use my_fancy_project::module_a::module_a_a;
+use rayon::prelude::*;
 
 ///
 /// The struct example
@@ -45,6 +46,9 @@ impl<T: Hello> IntroduceSelf for T {
 fn main() {
     println!("Hello, world!");
     module_a_a::printFromModuleAA();
+    let data = vec![1,2,3,4,5];
+    let double : Vec<i32> = data.iter().map(|x| 2*x).collect();
+    let parallel_double : Vec<i32> = data.par_iter().map(|x| 2*x).collect();
 }
 
 
