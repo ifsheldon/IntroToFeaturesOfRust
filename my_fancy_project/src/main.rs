@@ -1,5 +1,6 @@
 use my_fancy_project::module_a::module_a_a;
 use rayon::prelude::*;
+use std::fmt::Display;
 
 ///
 /// The struct example
@@ -41,6 +42,14 @@ impl<T: Hello> IntroduceSelf for T {
     fn introduce_self(&self) {
         println!("Hello, I'm {}", self.get_name());
     }
+}
+
+fn first<T, V>(binary_tuple: (T, V)) -> T {
+    binary_tuple.0
+}
+
+fn print<T: Display>(printable : T){
+    println!("{}", printable);
 }
 
 fn main() {
