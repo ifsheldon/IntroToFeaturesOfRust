@@ -28,7 +28,7 @@ impl Hello for People {
     fn say_hello(&self) { println!("Hi"); }
     // overriding the default
     fn construct_from_name(name: String) -> Self {
-        People { name, age: 0 }
+        People { name }
     }
 }
 
