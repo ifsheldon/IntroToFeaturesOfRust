@@ -274,7 +274,65 @@ We will see enums `Option<T>` and `Result<T, E>` in error handling.
 
 ### Trait — The “interface”
 
+The “Interface” in Rust is `trait`, which is a limited version of Java’s “Interface” because it can only specify functions that are needed to implement the trait, but **cannot** specify fields.
+
+For more details on traits, see [Chapter 10.2 Traits](https://doc.rust-lang.org/book/ch10-02-traits.html) and [Chapter 19.3 Advance Traits](https://doc.rust-lang.org/book/ch19-03-advanced-traits.html).
+
+```rust
+pub struct People {
+    name: String,
+    age: u8,
+}
+
+pub trait Hello {
+    // immutable function
+    fn give_age(&self) -> u8;
+    fn get_name(&self) -> String;
+    // mutable function
+    fn change_name(&mut self);
+    // function with default implementation
+    fn say_hello(&self) {
+        println!("Hello!");
+    }
+    // "static" function
+    fn construct_from_name(name: String) -> Self;
+}
+
+// impl Trait for Type
+impl Hello for People {
+    fn get_name(&self) -> String { self.name.clone() }
+    fn change_name(&mut self, new_name: String) { self.name = new_name; }
+    fn say_hello(&self) { println!("Hi"); } // overriding the default
+    fn construct_from_name(name: String) -> Self {
+        People { name, age: 0 }
+    }
+}
+```
+
+#### Blanket Trait Implementation
+
+Blanket Implementation is closely related to generics.
+
+```rust
+impl<T: Hello> IntroduceSelf for T {
+    fn introduce_self(&self) {
+        println!("Hello, I'm {}", self.get_name());
+    }
+}
+```
+
+It is much more powerful in a magical way, see the `Rayon` example:
+
+```rust
+pub fn main(){
+    let data = Vector::new()
+    for i in 0..10000000000000{
+        data.push(i);
+    }
+}
+```
 
 
-#### Blanket Trait
+
+
 
