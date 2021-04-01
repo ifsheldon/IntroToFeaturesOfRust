@@ -7,7 +7,6 @@ use my_fancy_project::module_a::module_a_a;
 ///
 pub struct People {
     name: String,
-    age: u8,
 }
 
 pub trait Hello {
@@ -31,6 +30,10 @@ impl Hello for People {
     fn construct_from_name(name: String) -> Self {
         People { name, age: 0 }
     }
+}
+
+pub trait IntroduceSelf {
+    fn introduce_self(&self);
 }
 
 impl<T: Hello> IntroduceSelf for T {
