@@ -166,6 +166,25 @@ The former one return exactly `1` while `1;` returns `()`, which is of type `()`
         println!("Some msg");
     }
     ```
+    
+* `match` -- A much more powerful `switch` with pattern matching
+
+    Notice: `match` does not need `break` and it **must be exhaustive**.
+
+    For more about pattern matching, see [Chapter 18](https://doc.rust-lang.org/book/ch18-00-patterns.html)
+
+    ```rust
+    let i = 1;
+    match i {
+        1 => println!("one"),
+        2 | 3 => println!("two or three"), // multiple values
+        4..7 => println!("[4, 7)"), // exclusive range
+        7..=9 => println!("[7, 9]"), // inclusive range
+        _ => println!("else") // match anyway, compile error if delete this line
+    }
+    ```
+
+    
 
 ## Type definitions
 
@@ -251,9 +270,11 @@ pub fn main(){
 }
 ```
 
-We will see enum `Option<T>` and `Result<T, E>` in error handling.
+We will see enums `Option<T>` and `Result<T, E>` in error handling.
 
 ### Trait — The “interface”
+
+
 
 #### Blanket Trait
 
