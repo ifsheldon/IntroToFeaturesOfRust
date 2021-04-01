@@ -60,4 +60,18 @@ mod tests {
     fn print() {
         println!("Hello test");
     }
+
+    pub struct Integer(i32);
+
+    #[test]
+    fn closures() {
+        let x = Integer(4);
+        let equal_to_x = |z: Integer| z.0 == x.0;
+        let y = Integer(4);
+        assert!(equal_to_x(y));
+        let move_equal_to_x = move |z: Integer| z.0 == x.0;
+        let z = Integer(4);
+        assert!(!move_equal_to_x(z));
+        println!("x = {}", x.0); // compile error here "value borrowed here after move"
+    }
 }
