@@ -368,7 +368,7 @@ For more on trait bounds, see [Chapter 10.2 Traits](https://doc.rust-lang.org/bo
 
 Error handling in Rust requires no extra syntax, but just two `type`s, `Option<T>` and `Result<T, E>`.
 
-For null values, `Option<T>` is used. Rust ensures **null-value safety** and programmers’ confidence by enforcing strict type checking and the use of `Option<T>`. 
+For null values, `Option<T>` is used. Rust ensures **null-value safety** and saves you billions of dollars by enforcing strict type checking and the use of `Option<T>`. 
 
 Because the type of `Option<T>` is not the same as `T`, you cannot pass type checking at compile time.
 
