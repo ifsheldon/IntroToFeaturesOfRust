@@ -14,15 +14,23 @@ In Rust, for mutability, we have:
 * `mut`, which must be stated explicitly
 
 ```rust
+struct Vec2{
+    pub x : i32,
+    pub y : i32,
+}
 fn main(){
     let i = 1;
+    let ref_i = &i; // OK
+    let mref_i = &mut i; // compile error, immutable data cannot have mutable ref
     i += 1; // compile error, i is immutable by default
     let mut j = 1;
     j += 1; // OK
+    let vec = Vec2{ x:1, y:2};
+    vec.x = 2; // compile error, vec is immutable
+    let mut mvec = Vec2{x:1, y:2};
+    mvec.x = 2; //OK
 }
 ```
-
-
 
 Data and their references are strictly distinguished, i.e. `Data != &Data` **semantically (owned data vs. borrowed data) and syntactically (leads to compile error)**.
 
@@ -40,8 +48,9 @@ fn main() {
 
 ## Strongly Static
 
-Related to **timeline** that will be talked about later.
+Related to **lifetime** that will be talked about later.
 
 ## Concurrent Safe
 
 The compiler enforces concurrent safety by enforcing rules of **ownership and borrow checking**, which will be talked about later.
+
