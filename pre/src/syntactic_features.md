@@ -411,7 +411,26 @@ pub fn main(){
 }
 ```
 
-For exceptions, `Result<T, E>` is used.
+For exceptions, `Result<T, E>` is used. The **error checking is mandatory** by enforcing type checking.
+
+```java
+static void method_throws_exception() throws Exception{
+    throw new Exception();
+}
+
+public static main(String[] args){
+    method_throws_exception(); // cannot compile because error checking is mandatory in Java
+}
+```
+
+```c++
+void func_throws_exception(){
+    throw "Some exception occured"
+}
+int main(){
+    func_throws_exception(); // can compile because c++ is indulging
+}
+```
 
 Definition of `Result<T, E>`
 
