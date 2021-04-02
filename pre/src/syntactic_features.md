@@ -281,15 +281,13 @@ For more details on traits, see [Chapter 10.2 Traits](https://doc.rust-lang.org/
 ```rust
 pub struct People {
     name: String,
-    age: u8,
 }
 
 pub trait Hello {
     // immutable function
-    fn give_age(&self) -> u8;
     fn get_name(&self) -> String;
     // mutable function
-    fn change_name(&mut self);
+    fn change_name(&mut self, new_name: String);
     // function with default implementation
     fn say_hello(&self) {
         println!("Hello!");
@@ -298,41 +296,143 @@ pub trait Hello {
     fn construct_from_name(name: String) -> Self;
 }
 
-// impl Trait for Type
 impl Hello for People {
     fn get_name(&self) -> String { self.name.clone() }
     fn change_name(&mut self, new_name: String) { self.name = new_name; }
-    fn say_hello(&self) { println!("Hi"); } // overriding the default
+    fn say_hello(&self) { println!("Hi"); }
+    // overriding the default
     fn construct_from_name(name: String) -> Self {
-        People { name, age: 0 }
+        People { name }
     }
 }
 ```
 
-#### Blanket Trait Implementation
+## Closures
 
-Blanket Implementation is closely related to generics.
+Closures, in many ways, are similar to lambdas in Java, but they are essentially close to lambdas in C++ because you also need to take care of the differences of capturing by value and capturing by reference, which are closely related to the lifetime mechanism(talked about later) in Rust.
 
-```rust
-impl<T: Hello> IntroduceSelf for T {
-    fn introduce_self(&self) {
-        println!("Hello, I'm {}", self.get_name());
-    }
-}
-```
+The syntax is `|arguments| single-line expression` or `|arguments| {multiline expressions}` with the optional `move` keyword. 
 
-It is much more powerful in a magical way, see the `Rayon` example:
+For more details on closures, see [Chapter 13.1](https://doc.rust-lang.org/book/ch13-01-closures.html).
 
 ```rust
+pub struct Integer(i32);
 pub fn main(){
-    let data = Vector::new()
-    for i in 0..10000000000000{
-        data.push(i);
-    }
+    let x = Integer(4);
+    // in this closure, x is borrowed/ "captured" as reference
+    let equal_to_x = |z: Integer| z.0 == x.0;
+    let y = Integer(4);
+    assert!(equal_to_x(y));
+    // in below closure, x is moved/"captured" as data, thus owned by this closure, not owned by main() anymore
+    let move_equal_to_x = move |z: Integer| z.0 == x.0;
+    let z = Integer(4);
+    assert!(!move_equal_to_x(z));
+    println!("x = {}", x.0); // compile error here "value borrowed here after move"
 }
 ```
 
+## Generics
 
+The simplest generics are just like those in Java.
 
+```rust
+struct Vec2<T>{
+    x : T,
+    y : T,
+}
+enum Option<T>{
+    Some<T>,
+    None
+}
+impl<T> Vec2<T>{
+    fn x(&self)->&T{
+        &self.x
+    }
+}
+fn first<T, V>(binary_tuple: (T, V)) -> T {
+    binary_tuple.0
+}
+```
 
+However, we can constrain generics by traits, which is called trait bound, like
 
+```rust
+fn print<T: Display>(printable : T){
+    println!("{}", printable);
+}
+```
+
+For more on trait bounds, see [Chapter 10.2 Traits](https://doc.rust-lang.org/book/ch10-02-traits.html).
+
+## Error Handling
+
+Error handling in Rust requires no extra syntax, but just two `type`s, `Option<T>` and `Result<T, E>`.
+
+For null values, `Option<T>` is used.
+
+Definition of `Option<T>`:
+
+```rust
+pub enum Option<T>{
+    Some(T), None
+}
+```
+
+Example:
+
+```rust
+pub fn foo()->Option<i32>{
+    Some(1)
+}
+pub fn bar()->Option<i32>{
+    None
+}
+pub fn main(){
+    // properly handles "null" value
+    let result = foo();
+    match result{
+        Some(result_int)=>println!("Got some int {}", result_int),
+        None=>println!("Nothing.")
+    }
+    // if you are sure
+    let must_be_some = foo().unwrap();
+    println!("Some int {}", must_be_some);
+    let guess_wrong = bar().unwrap(); // runtime error, program exits because of underlying `panic!()` call.
+}
+```
+
+For exceptions, `Result<T, E>` is used.
+
+Definition of `Result<T, E>`
+
+```rust
+pub enum Result<T, E>{
+    Ok<T>, Err<E>
+}
+```
+
+Example:
+
+```rust
+pub fn foo_result()->Result<i32, SomeExceptionType>{
+    Ok(1)
+}
+pub fn bar_result()->Result<i32, SomeExceptionType>{
+    Err(SomeExceptionType::new())
+}
+
+pub fn main(){
+    // properly handles "null" value
+    let result = foo_result();
+    match result{
+        Ok(result_int)=>println!("OK {}", result_int),
+        Err(error)=>println!("Error {}", error)
+    }
+    // if you are sure
+    let must_be_ok = foo_result().expect("I will never be wrong!");
+    println!("Some int {}", must_be_ok);
+    let wrong_again = bar_result().expect("It must be someone else messed up") // runtime error, program exits with stderr output because of underlying `panic!()` call
+}
+```
+
+For more details, see [Chapter 9 Error Handling](https://doc.rust-lang.org/book/ch09-00-error-handling.html).
