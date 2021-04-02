@@ -35,3 +35,14 @@ pub fn main(){
 ```
 
 The key recipe for `Rayon` to work is blanket implementation, which enables the developer to bind a new trait(e.g. `ParIter`) to a type that implements trait `Iter`.
+
+## Concurrent Safety
+
+## No global variable
+
+## `unsafe` keyword
+
+## Testing
+
+## Documentation
+

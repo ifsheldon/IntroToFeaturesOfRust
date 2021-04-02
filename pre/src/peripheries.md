@@ -1,1 +1,6 @@
 # Peripheries
+
+## `rustup`
+
+## `cargo`
+
