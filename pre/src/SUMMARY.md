@@ -7,4 +7,5 @@
 - [Engineering Features](engineering_features.md)
 - [Paradigmatic Features](paradigmatic_features.md)
 - [Peripheries](peripheries.md)
+- [Useful Links](useful_links.md)
 
