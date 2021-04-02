@@ -13,6 +13,33 @@ pub struct People {
     name: String,
 }
 
+
+pub struct Student {
+    name: String,
+    id: Option<u32>
+}
+
+pub struct StudentConstruct {
+    pub student: Student
+}
+
+impl Student {
+    pub fn construct(name: String) -> StudentConstruct {
+        let student = Student { name, id: None };
+        StudentConstruct { student }
+    }
+}
+
+impl StudentConstruct {
+    pub fn complete(self) -> Student {
+        self.student
+    }
+    pub fn add_id(&mut self, id: u32) -> &mut Self {
+        self.student.id = Some(id);
+        self
+    }
+}
+
 pub trait Hello {
     // immutable function
     fn get_name(&self) -> String;
@@ -27,7 +54,7 @@ pub trait Hello {
 }
 
 pub trait HelloTwice: Hello {
-    fn hello_twice(){
+    fn hello_twice() {
         println!("s");
     }
 }
@@ -80,6 +107,9 @@ fn main() {
         println!("Sure it is {}", number_for_sure);
     }
 
+    let student = Student::construct(String::from("mike"))
+                                                .add_id(1)
+                                                .complete();
     let thread_num = 10;
     let mut handles = Vec::new();
     let values_created_in_threads: Vec<i32> = Vec::new();
