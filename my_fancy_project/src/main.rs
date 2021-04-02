@@ -48,16 +48,16 @@ fn first<T, V>(binary_tuple: (T, V)) -> T {
     binary_tuple.0
 }
 
-fn print<T: Display>(printable : T){
+fn print<T: Display>(printable: T) {
     println!("{}", printable);
 }
 
 fn main() {
     println!("Hello, world!");
     module_a_a::printFromModuleAA();
-    let data = vec![1,2,3,4,5];
-    let double : Vec<i32> = data.iter().map(|x| 2*x).collect();
-    let parallel_double : Vec<i32> = data.par_iter().map(|x| 2*x).collect();
+    let data = vec![1, 2, 3, 4, 5];
+    let double: Vec<i32> = data.iter().map(|x| 2 * x).collect();
+    let parallel_double: Vec<i32> = data.par_iter().map(|x| 2 * x).collect();
 }
 
 
@@ -70,17 +70,43 @@ mod tests {
         println!("Hello test");
     }
 
-    pub struct Integer(i32);
+    pub struct Integer {
+        pub int: i32
+    }
+
+    pub struct Data {
+        pub integer: Integer
+    }
+
+    pub struct DataRef<'a> {
+        pub data_ref: &'a Data
+    }
 
     #[test]
     fn closures() {
         let x = Integer(4);
-        let equal_to_x = |z: Integer| z.0 == x.0;
+        let equal_to_x = |z: Integer| z.int == x.int;
         let y = Integer(4);
+        let f = &mut y;
         assert!(equal_to_x(y));
-        let move_equal_to_x = move |z: Integer| z.0 == x.0;
+        let move_equal_to_x = move |z: Integer| z.int == x.int;
         let z = Integer(4);
         assert!(!move_equal_to_x(z));
         println!("x = {}", x.0); // compile error here "value borrowed here after move"
+    }
+
+    fn mut_func1(data: Data) {
+        data.integer.int = 4; // not allowed
+    }
+
+    fn mut_func2(mut data: Data) {
+        data.integer.int = 4;
+    }
+
+    #[test]
+    fn ownerships() {
+        let integer = Integer { int: 1 };
+        let data = Data { integer };
+        mut_func2(data);
     }
 }
