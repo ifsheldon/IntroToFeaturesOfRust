@@ -5,6 +5,11 @@
 Blanket Implementation is closely related to generics.
 
 ```rust
+pub trait Hello {
+    fn get_name(&self) -> String;
+    // zip ---
+}
+
 impl<T: Hello> IntroduceSelf for T {
     fn introduce_self(&self) {
         println!("Hello, I'm {}", self.get_name());
