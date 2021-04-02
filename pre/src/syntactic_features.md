@@ -411,7 +411,19 @@ pub fn main(){
 }
 ```
 
-For exceptions, `Result<T, E>` is used. The **error checking is mandatory** by enforcing type checking.
+For irrecoverable exceptions, use `panic!()`, like
+
+``` rust
+fn divide(x: i32, y: i32)-> i32{
+    if y == 0{
+        panic!("Divide by 0");
+    }else{
+        x / y
+    }
+}
+```
+
+For recoverable exceptions, `Result<T, E>` is used. The **error checking is mandatory** by enforcing type checking.
 
 ```java
 static void method_throws_exception() throws Exception{
