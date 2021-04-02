@@ -26,6 +26,12 @@ pub trait Hello {
     fn construct_from_name(name: String) -> Self;
 }
 
+pub trait HelloTwice: Hello {
+    fn hello_twice(){
+        println!("s");
+    }
+}
+
 impl Hello for People {
     fn get_name(&self) -> String { self.name.clone() }
     fn change_name(&mut self, new_name: String) { self.name = new_name; }
