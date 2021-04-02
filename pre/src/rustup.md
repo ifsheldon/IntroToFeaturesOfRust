@@ -1,5 +1,7 @@
 # Quick Rustup
 
+> Side note: You can change the theme by clicking the brush icon on the top left corner.
+
 * environment setup
 
     * Linux and macOS
