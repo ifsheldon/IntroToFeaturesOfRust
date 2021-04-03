@@ -10,11 +10,11 @@
 
     * Windows
 
-        download `rustup-init.exe` on https://www.rust-lang.org/learn/get-started
+        download `rustup-init.exe` on [https://www.rust-lang.org/learn/get-started](https://www.rust-lang.org/learn/get-started)
 
     * Online playground(great for trying out but slow)
 
-        https://play.rust-lang.org
+        [https://play.rust-lang.org](https://play.rust-lang.org)
 
 * hello rust
 
