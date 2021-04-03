@@ -7,3 +7,4 @@ title = "IntroToFeaturesOfRust"
 
 [output.html.playground]
 editable = true
+line-numbers = true
