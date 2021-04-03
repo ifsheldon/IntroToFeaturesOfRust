@@ -2,7 +2,7 @@
 
 **Sorted by importance**
 
-* All-in-one official [official learning website](https://www.rust-lang.org/learn)
+* All-in-one [official learning website](https://www.rust-lang.org/learn)
 
     * The book
     * Rust by examples
