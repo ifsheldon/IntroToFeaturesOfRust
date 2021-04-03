@@ -23,7 +23,7 @@ It is much more powerful in a magical way, see the `Rayon` example:
 // Rayon, a parallelization library
 use rayon::prelude::*;
 pub fn main(){
-    let data = Vector::new()
+    let data = Vec::new()
     for i in 0..10000000000000{
         data.push(i);
     }
