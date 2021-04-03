@@ -2,11 +2,11 @@
 
 ## Strictly Typed
 
-|                                  |       C        |     C++      |                  Java                  | Rust |
-| :------------------------------: | :------------: | :----------: | :------------------------------------: | :--: |
-|        Strong type system        |       No       |   Kind of    |                  Yes                   | Yes  |
-|      Mutability Enforcement      |  Very limited  | Very Limited |              Very Limited              | Yes  |
-| Distinguish between Ref and Data | Not applicable |     Weak     | All reference(except basic data types) | Yes  |
+|                                  |       C        |     C++      |                   Java                    | Rust |
+| :------------------------------: | :------------: | :----------: | :---------------------------------------: | :--: |
+|        Strong type system        |       No       |   Kind of    |                    Yes                    | Yes  |
+|      Mutability Enforcement      |  Very limited  | Very limited |               Very limited                | Yes  |
+| Distinguish between Ref and Data | Not applicable |     Weak     | All reference<br>(except primitive types) | Yes  |
 
 In Rust, for mutability, we have:
 
