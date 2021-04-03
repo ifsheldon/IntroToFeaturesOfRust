@@ -309,7 +309,7 @@ impl Hello for People {
 
 ## Closures
 
-Closures, in many ways, are similar to lambdas in Java, but they are essentially close to lambdas in C++ because you also need to take care of the differences of capturing by value and capturing by reference, which are closely related to the lifetime mechanism(talked about later) in Rust.
+Closures, in many ways, are similar to lambdas in Java, but they are essentially close to lambdas in C++ because you also need to take care of the differences of capturing by value and capturing by reference, which are closely related to the lifetime in Rust.
 
 The syntax is `|arguments| single-line expression` or `|arguments| {multiline expressions}` with the optional `move` keyword. 
 
