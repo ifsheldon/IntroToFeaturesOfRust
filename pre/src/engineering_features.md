@@ -42,7 +42,7 @@ Basically, except basic syntax correctness checking, code in `unsafe` blocks wil
 
 But, beside this extreme case, we can use `unsafe` to get rid of some overhead.
 
-And one basic rule is that `unsafe`-quanlified functions can only be used in `unsafe` blocks.
+And one basic rule is that `unsafe`-qualified functions can only be used in `unsafe` blocks.
 
 ```rust,editable
 pub fn main(){
