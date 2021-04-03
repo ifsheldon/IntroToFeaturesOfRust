@@ -2,7 +2,7 @@
 
 Ownership and Lifetime are two major obstacles for people learning Rust.
 
-> Notations (only here):
+> Terminologies (only here):
 >
 > ​	Data: a part of memory that is meaningful
 >
