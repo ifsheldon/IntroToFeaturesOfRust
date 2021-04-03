@@ -117,7 +117,7 @@ pub fn main(){
 }
 ```
 
-![image-20210402202133086](image-20210402202133086.png)
+![arc](arc.png)
 
 For massage passing concurrency and more details, see [Chapter 16 Fearless concurrency](https://doc.rust-lang.org/book/ch16-00-concurrency.html) and its prerequisite [Chapter 15 Smart Pointers](https://doc.rust-lang.org/book/ch15-00-smart-pointers.html).
 
