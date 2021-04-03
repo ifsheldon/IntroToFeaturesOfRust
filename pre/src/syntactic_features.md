@@ -329,9 +329,29 @@ pub fn main(){
     assert!(!move_equal_to_x(z));
     println!("x = {}", x.0); // compile error here "value borrowed here after move"
 }
+
+// consider equal_to_x as an anonymous struct
+// struct EqX {
+//    pub ref : &Integer
+// }
+// impl Eqx{
+//    pub fn equal_to_x(&self, z:Integer) -> bool{
+//      self.ref.0 == z.0
+//   }
+// }
+
+// similarly, consider move_equal_to_x as an anonymous struct
+// struct MEqX {
+//    pub data : Integer
+// }
+// impl MEqx{
+//    pub fn equal_to_x(&self, z:Integer) -> bool{
+//      self.data.0 == z.0
+//   }
+// }
 ```
 
-## Generics
+## Generics 
 
 The simplest generics are just like those in Java.
 
