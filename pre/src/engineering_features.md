@@ -86,7 +86,11 @@ pub fn main(){
 
 ## Concurrent Safety
 
-An example of data sharing across threads.
+If you want to share immutable data across threads, you can simply copy the data (if it’s not large), or you can create multiple `Rc` (i.e., reference cell) that are smart pointers counting the number of references at run time. `Rc` is similar to `shared_ptr` in C++.
+
+If mutable data are shared across threads, concurrent read-write safety must be considered. So you need `Mutex` and `Arc`(i.e., atomic reference cell) to safeguard your data.
+
+An example of mutable data sharing across threads.
 
 ```rust,editable
 use std::sync::{Mutex, Arc, MutexGuard};
