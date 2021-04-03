@@ -364,6 +364,23 @@ fn print<T: Display>(printable : T){
 
 For more on trait bounds, see [Chapter 10.2 Traits](https://doc.rust-lang.org/book/ch10-02-traits.html).
 
+Another feature (that has been in C++ for a long time) that was just added last week is Const Generics (see [release note of Rust 1.51](https://blog.rust-lang.org/2021/03/25/Rust-1.51.0.html)). Although it can be realized using macros, it’s much more convenient now. 
+
+```rust
+struct Array<T, const LENGTH: usize> {
+    //          ^^^^^^^^^^^^^^^^^^^ Const generic definition.
+    list: [T; LENGTH]
+    //        ^^^^^^ We use it here.
+}
+```
+
+We can define variables like
+
+```
+let array32 = Array<u8, 32>;
+let array16 = Arrya<u8, 16>;
+```
+
 ## Error Handling
 
 Error handling in Rust requires no extra syntax, but just two `type`s, `Option<T>` and `Result<T, E>`.
