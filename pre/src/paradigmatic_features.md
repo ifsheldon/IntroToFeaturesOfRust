@@ -43,15 +43,15 @@ impl Hello for Student{
 
 ## Favor Constructors over Default Values
 
-Rust does NOT have:
+In the context of methods/functions, Rust does NOT have:
 
 * default values for functions
 * functions with variable argument list
 * function overloading
 
-so every function in Rust is as explicit as possible.
+So every function/method in Rust is as explicit as possible.
 
-To use defaults(like “constructors (in C++)” of a struct), you have to define different “constructors” with different name. Or, you can adopt the Constructor Pattern.
+To use defaults(like “constructors (in C++)” of a struct), you have to define different “constructors” with different name. Or, you can adopt the Constructor Pattern to construct a struct instance.
 
 Example
 
@@ -105,6 +105,31 @@ pub fn main(){
                                                 .complete();
 }
 ```
+
+In the context of structs, you can have a default value by implementing `Default` trait.
+
+```rust
+// the definition of Default trait is
+pub trait Default{
+    fn default()->Self;
+}
+
+// an example
+pub struct MyType{
+    attrib1 : u32,
+    attrib2 : i32
+}
+impl Default for MyType{
+    fn default()->Self{
+        MyType{
+            attrib1:0,
+            attrib2:-1
+        }
+    }
+}
+```
+
+
 
 ## True Meta-programming with Macros
 
