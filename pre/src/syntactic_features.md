@@ -11,7 +11,7 @@ let b : u32 = 1;
 
 but it’s always required that we specify a type for a constant
 
-```rust
+```rust,editable
 const c : u32 = 1;
 ```
 
@@ -36,7 +36,7 @@ A `char` is 4-byte with comprehensive unicode support.
 
 Details of unicode support can be found in the book [Chapter 8.2](https://doc.rust-lang.org/book/ch08-02-strings.html#storing-utf-8-encoded-text-with-strings).
 
-```rust
+```rust,editable
 fn main() {
     let c = 'z';
     let z = 'ℤ';
@@ -47,7 +47,7 @@ fn main() {
 
 ### Tuples
 
-```rust
+```rust,editable
 fn main(){
     let tup = (500, 6.4, 1); // tuple composition
     let (x, y, z) = tup; // decomposition
@@ -56,7 +56,7 @@ fn main(){
 
 ### Arrays
 
-```rust
+```rust,editable
 fn main(){
     let a = [1,2,3,4,5]; // we use [] instead of {} in C/CPP
     let b : [u32; 5] = [1,2,3,4,5]; // specify type explicitly
@@ -90,7 +90,7 @@ fn main(){
 
 `Vec<T>` is the dynamic generic vector(similar to `vector` in C++), which is stored in the heap of a process.
 
-```rust
+```rust,editable
 fn main(){
     let v = Vec::new();
     for i in 0..100000000000000 {
@@ -103,7 +103,7 @@ fn main(){
 
 In a function, you can explicitly `return` a value, or, you can return the value of the last expression implicitly.
 
-```rust
+```rust,editable
 fn private_function(){
     // with no pub, a function is private by default
     // for more details, see https://doc.rust-lang.org/reference/visibility-and-privacy.html
@@ -194,7 +194,7 @@ Rust has no “class”es and no inheritance, because it favors compositions ove
 
 Just as `struct` in C
 
-```rust
+```rust,editable
 pub struct Vec3{
     pub x : f32,
     pub y : f32,
@@ -223,7 +223,7 @@ pub fn main(){
 
 The “methods” of a Rust `struct` are not methods but just functions bound to a `struct`.
 
-```rust
+```rust,editable
 impl Vec3{
     pub fn squred_length(&self) -> f32{
         self.x * self.x + self.y * self.y + self.z * self.z
@@ -238,7 +238,7 @@ impl Vec3{
 
 What's the difference between a function with `&self` and one without it? **No difference!**
 
-```rust
+```rust,editable
 fn main() {
     let v = Vec3::new(1.0,1.0,1.0);
     // the below two lines are equivalent
@@ -251,7 +251,7 @@ fn main() {
 
 With pattern matching, `enum` in Rust is much more powerful than `enum` in Java/C++.
 
-```rust
+```rust,editable
 // example
 pub enum SimpleResult{
     OK(i32), Err(i32)
@@ -278,7 +278,7 @@ The “Interface” in Rust is `trait`, which is a limited version of Java’s �
 
 For more details on traits, see [Chapter 10.2 Traits](https://doc.rust-lang.org/book/ch10-02-traits.html) and [Chapter 19.3 Advance Traits](https://doc.rust-lang.org/book/ch19-03-advanced-traits.html).
 
-```rust
+```rust,editable
 pub struct People {
     name: String,
 }
@@ -315,7 +315,7 @@ The syntax is `|arguments| single-line expression` or `|arguments| {multiline ex
 
 For more details on closures, see [Chapter 13.1](https://doc.rust-lang.org/book/ch13-01-closures.html).
 
-```rust
+```rust,editable
 pub struct Integer(i32);
 pub fn main(){
     let x = Integer(4);
@@ -335,7 +335,7 @@ pub fn main(){
 
 The simplest generics are just like those in Java.
 
-```rust
+```rust,editable
 struct Vec2<T>{
     x : T,
     y : T,
@@ -356,7 +356,7 @@ fn first<T, V>(binary_tuple: (T, V)) -> T {
 
 However, we can constrain generics by traits, which is called trait bound, like
 
-```rust
+```rust,editable
 fn print<T: Display>(printable : T){
     println!("{}", printable);
 }
@@ -382,7 +382,7 @@ Object obj = null; // Java is not null-value safe
 
 Definition of `Option<T>`:
 
-```rust
+```rust,editable
 pub enum Option<T>{
     Some(T), None
 }
@@ -390,7 +390,7 @@ pub enum Option<T>{
 
 Example:
 
-```rust
+```rust,editable
 pub fn foo()->Option<i32>{
     Some(1)
 }
@@ -446,7 +446,7 @@ int main(){
 
 Definition of `Result<T, E>`
 
-```rust
+```rust,editable
 pub enum Result<T, E>{
     Ok<T>, Err<E>
 }
@@ -454,7 +454,7 @@ pub enum Result<T, E>{
 
 Example:
 
-```rust
+```rust,editable
 pub fn foo_result()->Result<i32, SomeExceptionType>{
     Ok(1)
 }

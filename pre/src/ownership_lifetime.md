@@ -48,7 +48,7 @@ A variable is said to be borrowed if it is referenced.
 
 Lifetime example:
 
-```rust
+```rust,editable
 struct Data{
     pub name : String
 }
@@ -79,7 +79,7 @@ pub fn main(){
 
 How about we storing a reference in a `struct`?
 
-```rust
+```rust,editable
 pub struct BadDataRef{
 	pub data_ref: &Data // compile error
 }
@@ -95,7 +95,7 @@ pub fn main(){
 
 We have to specify the lifetime of the referenced data somehow
 
-```rust
+```rust,editable
 pub struct GoodDataRef<'a>{
     // 'a here is a lifetime specifier (and also a special kind of generics)
     // meaning the lifetime of referenced data is at least as long as the lifetimes of GoodDataRef instances

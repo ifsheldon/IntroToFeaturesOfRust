@@ -6,7 +6,7 @@ There is **no** inheritance in Rust. The only inheritance-like thing you can do 
 
 Example
 
-```rust
+```rust,editable
 // if a type wants to implement HelloTwice, it must implement Hello first
 trait HelloTwice : Hello{
     fn hello_twice(&self){
@@ -27,7 +27,7 @@ class Student extends People{} // Java inheritance
 
 But in Rust, if you want to be as “inheritance" as possible (depending on your intention)
 
-```rust
+```rust,editable
 pub struct People{...}
 impl Hello for People{...}
 pub struct Student{
@@ -55,7 +55,7 @@ To use defaults(like “constructors (in C++)” of a struct), you have to defin
 
 Example
 
-```rust
+```rust,editable
 pub struct Student{
     name: String,
     id: Option<u32>
@@ -108,7 +108,7 @@ pub fn main(){
 
 In the context of structs, you can have a default value by implementing `Default` trait.
 
-```rust
+```rust,editable
 // the definition of Default trait is
 pub trait Default{
     fn default()->Self;
@@ -147,7 +147,7 @@ We won’t go into details of macros, as they deserve a whole book. For usage de
 
 An example of `println!()`
 
-```rust
+```rust,editable
 pub fn main(){
     println!("{} {} {} {}", 1, 2, 3, "?");
 }
@@ -155,7 +155,7 @@ pub fn main(){
 
 The expanded code (using `cargo-expand`) is 
 
-```rust
+```rust,editable
 pub fn main(){
     {
         ::std::io::_print(::core::fmt::Arguments::new_v1(

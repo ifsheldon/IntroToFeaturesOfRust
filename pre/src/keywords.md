@@ -13,7 +13,7 @@ In Rust, for mutability, we have:
 * Immutable, which is the default
 * `mut`, which must be stated explicitly
 
-```rust
+```rust,editable
 struct Vec2{
     pub x : i32,
     pub y : i32,
@@ -34,7 +34,7 @@ fn main(){
 
 Data and their references are strictly distinguished, i.e. `Data != &Data` **semantically (owned data vs. borrowed data) and syntactically (leads to compile error)**.
 
-```rust
+```rust,editable
 pub fn foo(reference : &i32){
     println!("{}", reference);
 }

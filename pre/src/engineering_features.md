@@ -4,7 +4,7 @@
 
 Blanket Implementation is closely related to generics.
 
-```rust
+```rust,editable
 pub trait Hello {
     fn get_name(&self) -> String;
     // zip ---
@@ -19,7 +19,7 @@ impl<T: Hello> IntroduceSelf for T {
 
 It is much more powerful in a magical way, see the `Rayon` example:
 
-```rust
+```rust,editable
 // Rayon, a parallelization library
 use rayon::prelude::*;
 pub fn main(){
@@ -44,7 +44,7 @@ But, beside this extreme case, we can use `unsafe` to get rid of some overhead.
 
 And one basic rule is that `unsafe`-quanlified functions can only be used in `unsafe` blocks.
 
-```rust
+```rust,editable
 pub fn main(){
     let numbers = vec![1, 2, 3, 4, 5];
     for i in 0..numbers.len() {
@@ -64,7 +64,7 @@ Global mutable variables are discouraged and strictly constrained to use because
 
 But constants and immutable `static` variable can be safely used
 
-```rust
+```rust,editable
 const CONST_DATA: [u32; 4] = [1, 2, 3, 4];
 const CONST_INT: i32 = 1;
 static IMMUT_BOOL: bool = false;
@@ -74,7 +74,7 @@ const CONST_STRING: String = String::from("failed attempt"); // compile error, s
 
 `static mut` variables can be `unsafe`ly used.
 
-```rust
+```rust,editable
 static mut MUT_BOOL : bool = false;
 pub fn main(){
     unsafe{
@@ -88,7 +88,7 @@ pub fn main(){
 
 An example of data sharing across threads.
 
-```rust
+```rust,editable
 use std::sync::{Mutex, Arc, MutexGuard};
 use std::thread;
 pub fn main(){
@@ -125,7 +125,7 @@ For massage passing concurrency and more details, see [Chapter 16 Fearless concu
 
 Rust has a builtin comprehensive testing system. You can define a test module with macro `#[cfg(test)]` and define a test case by decorating a function in a test module by macro `#[test]`.
 
-```rust
+```rust,editable
 #[cfg(test)]
 mod test_mod{
     struct HelperStruct{..} // can define anything, a test module is a regular module
@@ -164,7 +164,7 @@ Documentation in Rust supports full-fledged Markdown.
 
 Simple documentation comments for functions, structs and enums are like
 
-```rust
+```rust,editable
 ///
 /// This is a simple add function
 ///
@@ -181,7 +181,7 @@ pub fn add_integers(x: i32, y: i32) -> i32 {
 
 To document a module, the syntax is
 
-```rust
+```rust,editable
 pub mod simple_mod{
     //! This is a simple module
     //! # h1
