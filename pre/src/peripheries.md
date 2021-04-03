@@ -30,6 +30,8 @@ You can use `cargo` to:
 
 * Distribute and publish projects
 
+* Format your code using `rustfmt` by `cargo fmt`
+
 * Benchmark your code
 
 * Install others’ binary tools
