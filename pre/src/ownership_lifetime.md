@@ -53,7 +53,7 @@ struct Data{
     pub name : String
 }
 
-fn function_owns(mut data: Data){
+fn function_takes_ownership(mut data: Data){
     data.name = String.from("new name");
     println!("{}", data.name);
     // the lifetime of `data` ends here
@@ -66,7 +66,7 @@ fn function_borrows(data:&Data){
 
 pub fn main(){
     let data1 = Data{name: String::from("data 1")}; // data1 lifetime start here
-    function_owns(data1); // data1 moved to functions_owns
+    function_takes_ownership(data1); // data1 moved to functions_owns
     function_borrows(data1); // compile error
     function_owns(data1); // also compile error
     let data2 = Data{name : String::from("data 2")};
