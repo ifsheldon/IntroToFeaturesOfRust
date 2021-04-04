@@ -73,3 +73,16 @@ toolchain management
   * [how-to-implement-inheritance-like-feature-for-rust](https://users.rust-lang.org/t/how-to-implement-inheritance-like-feature-for-rust/31159)
   * [is-there-a-simple-way-to-overload-functions](https://users.rust-lang.org/t/is-there-a-simple-way-to-overload-functions/30937)
 * (Advertisement) My repo [RustyOOPatterns](https://github.com/ifsheldon/RustyOOPatterns)
+
+
+
+## Build the book in ./pre
+
+To build the book into web pages, you’ll need Rust and Cargo installed.
+
+```shell
+cd ./pre
+cargo install mdbook
+mdbook build
+```
+
